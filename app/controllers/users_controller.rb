@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 	def create
-		puts params
-		# User.create!(user_params)
+		respond_to do |format|
+			format.html {render :show}
+			format.json do  user = User.create!(user_params)
+							puts user.id
+							render json: {"user" => user.id} 
+						end 
+		end
 	end
 
 	def new
