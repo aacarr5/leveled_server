@@ -14,6 +14,13 @@ class UsersController < ApplicationController
 		puts ("Hello")
 	end
 
+	def Self.authenticate(username,password)
+		user = User.find_by(username:username)
+		if user.password = password {
+			
+		}
+	end
+
 	def show
 		@user = User.first
 		respond_to do |format|
