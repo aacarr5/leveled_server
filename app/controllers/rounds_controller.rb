@@ -5,8 +5,8 @@ class RoundsController < ApplicationController
 		respond_to do |format|
 			format.html {render :show}
 			format.json do round = Round.create!(round_params)
-							# user = User.find(round.user_id)
-							# user.add_points(round.points)
+							user = User.find(round.user_id)
+							user.add_points(round.points)
 						   render json: {"response" => round.points}
 						end
 					end
