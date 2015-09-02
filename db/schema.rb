@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150830212139) do
   create_table "users", force: :cascade do |t|
     t.string  "username"
     t.string  "password"
-    t.integer "level", default: 1
-    t.integer "xp", default: 1
+    t.integer "level",    default: 1
+    t.integer "xp",       default: 1
   end
 
 end

@@ -2,7 +2,7 @@ class Round < ActiveRecord::Base
 	belongs_to :user
 
 	def points
-		@points || = pointCreator
+		@points ||= pointCreator
 	end
 
 
