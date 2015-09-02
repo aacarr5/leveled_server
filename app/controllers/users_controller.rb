@@ -23,17 +23,11 @@ class UsersController < ApplicationController
 	# end
 
 	def show
-		# @user = User.find(params[:id])
-		@user = User.find(76)
+		@user = User.find(params[:id])
 
 		info = [@user.username,@user.level,@user.xp]
 
 		info.map!{|x| x == nil ? "0" : x}
-
-		# respond_to do |format|
-		# 	format.html { render :show }
-		# 	format.json { render json: @user }
-  #       end
 
   		respond_to do |format|
   			format.html {render :show}
