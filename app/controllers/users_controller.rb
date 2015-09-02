@@ -14,19 +14,31 @@ class UsersController < ApplicationController
 		puts ("Hello")
 	end
 
-	def Self.authenticate(username,password)
-		user = User.find_by(username:username)
-		if user.password = password {
-			
-		}
-	end
+	# def Self.authenticate(username,password)
+	# 	user = User.find_by(username:username)
+	# 	if user.password = password {
+
+	# 	}
+	# end
+	# end
 
 	def show
-		@user = User.first
-		respond_to do |format|
-			format.html { render :show }
-			format.json { render json: @user }
-        end
+		# @user = User.find(params[:id])
+		@user = User.find(76)
+
+		info = [@user.username,@user.level,@user.xp]
+
+		info.map!{|x| x == nil ? "0" : x}
+
+		# respond_to do |format|
+		# 	format.html { render :show }
+		# 	format.json { render json: @user }
+  #       end
+
+  		respond_to do |format|
+  			format.html {render :show}
+  			format.json {render json: info }
+  		end
 	end
 
 	private
