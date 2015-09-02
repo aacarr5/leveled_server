@@ -2,10 +2,11 @@ class UsersController < ApplicationController
 	def create
 		respond_to do |format|
 			format.html {render :show}
-			format.json do  user = User.create!(user_params)
-							puts user.id
-							render json: {"user" => user.id} 
-						end 
+			format.json do  
+				user = User.create!(user_params)
+				puts user.id
+				render json: {"user" => user.id} 
+			end 
 		end
 	end
 
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 
-		info = [@user.username,@user.level,@user.xp]
+		info = [@user.username,@user.level,@user.total_xp]
 
   		respond_to do |format|
   			format.html {render :show}
